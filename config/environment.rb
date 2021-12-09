@@ -2,7 +2,19 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
+require 'require_all'
 require "project_pokemon"
+require "pry"
+require 'json'
+require 'awesome_print'
+require "irb"
+require 'open-uri'
+require 'net/http'
+require 'poke-api-v2'
+require 'bundler' #makes it so Ruby can find all the Ruby gems in the Gemfile.
+Bundler.require
+require_all 'lib'
+
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -12,4 +24,4 @@ require "project_pokemon"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+# IRB.start(__FILE__)

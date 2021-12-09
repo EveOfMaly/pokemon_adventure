@@ -2,7 +2,13 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in project_pokemon.gemspec
-gemspec
 
+
+gem 'rspec'
+gem 'pry'
+gem 'require_all'
+gem 'colorize'
 gem "rake", "~> 13.0"
+gem 'poke-api-v2'
+gem 'awesome_print'
+gemspec
