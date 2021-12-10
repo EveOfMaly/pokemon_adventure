@@ -29,16 +29,14 @@ elsif input == "N"
   player.user_name = player_user_name
 end
 
-Game.new(player)
-new_game.displaymenu
-@input = gets.chomp
-new_game.valid?
-
-binding.pry
-
-until game.exit?
-  game.play
+new_game = Game.new(player)
+new_game.choose_game
+until new_game.exit? 
+  game.choose_game
 end
+
+
+
 
 
 # Game.new(player)

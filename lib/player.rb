@@ -1,7 +1,10 @@
 require_relative '../config/environment'
+require_relative '../lib/pokemon'
+require_relative '../lib/player'
+require_relative '../lib/move'
 
 class Player 
-    attr_accessor :player_id, :user_name, :first_name, :last_name, :trainer_level, :pokeballs, :pokemon, :items
+    attr_accessor :player_id, :user_name, :first_name, :last_name, :trainer_level, :pokeballs, :pokemons, :items
 
     @@all = []
     
@@ -9,6 +12,7 @@ class Player
         @player_id = nil
         @user_name = nil 
         @trainer_level = 0 
+        @pokemons = [] #A player has many pokemon and pokemon belong to a player 
         self.class.all << self 
     end
 
@@ -36,7 +40,28 @@ class Player
             end
         end
     end
+
+    def capture_pokemon
+
+    end
+
+    #when a pokemon is captured add the pokemon to list of pokemon of trainer
+    def add_pokemon(pokemon)
+        @pokemons << pokemon
+        pokemon.player = self 
+        binding.pry
+    end
+
+    #see a list of pokemon that belong that trainer
+    def pokemon_slots 
+        @pokemons.map do |pokemon| 
+            puts "pokemon.nickname is a #{pokemon.name}"
+            puts "pokemon.description"
+        end
+    end
 end 
+
+
 
 
 

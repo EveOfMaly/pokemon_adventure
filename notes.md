@@ -54,3 +54,17 @@
 9. Exit
 10. Delete Account
     1. Delete the account
+
+
+
+
+
+
+
+ Player has many Pokemon 
+ Pokemon belongs to Player
+ Pokemon has many moves 
+ Moves belong to a Pokemon
+    
+
+
