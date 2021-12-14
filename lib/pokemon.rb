@@ -60,6 +60,7 @@ class Pokemon
             @@new_pokemon_moves_collection = pokemon["moves"] 
             new_pokemon.create_move
             new_pokemon.moves = @@new_move
+            new_pokemon
         end
     end
 
@@ -104,8 +105,6 @@ class Pokemon
     #     end
     #     kkk
     # end
-
-    
 
     
 

@@ -76,6 +76,7 @@ class Game
 
    
     def catch_pokemon
+    
         @@random_encounter = Pokemon.all.sample #choose a random element
         puts "You decide to walk into the wildlands where pokemon are....".colorize(:green)
         puts "A wild #{@@random_encounter.name } has APPEARED!!!".colorize(:green)
@@ -152,6 +153,8 @@ class Game
         choose_game
     end
 
+    ##account for nil class??
+
     def use_pokedex(pokemon)
         puts "You pull out your pokedex"
         puts ""
@@ -175,7 +178,8 @@ class Game
     end
 
     def shop
-        puts "shopping"
+        puts "We love to collect feedback on your interest"
+        puts "Would a advanced be of interest to you?"
         choose_game
     end
     
@@ -201,9 +205,8 @@ class Game
     end
 
     def delete_account
-        binding.pry
-        Accounts.all.select {|account|account.game == self}
-        self 
+        account = Accounts.all.reject {|object| object.game == self}
+        ProjectPokemon::CLI.call 
     end 
 end 
 

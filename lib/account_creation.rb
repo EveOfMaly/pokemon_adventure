@@ -7,7 +7,7 @@ require_relative '../lib/game'
 
 class Accounts
 
-    @@player = nil #set class player to empty upon account creation. 
+    @@player = "" #set class player to empty upon account creation. 
 
     @@accounts = []  #keep track of all accounts 
 
@@ -27,14 +27,14 @@ class Accounts
     def self.user
         @@input = gets.chomp
         
-      if @@input == "Y"
+      if @@input == "Y" || @@input == "y"
         puts "Great. Let's look for your account data.".colorize(:green)
         puts "Please enter the user name for your account.".colorize(:blue)
         user_name_input = gets.chomp
         player = Player.find_or_create_player(user_name_input) #find or create the player
         add_account(player)
         @@player  = player 
-      elsif @@input == "N"
+      elsif @@input == "N" || @@input == "n"
         puts "Okay, no problem.".colorize(:green)
         puts "Answer a few questions to create your account".colorize(:green)
         player = Player.new
@@ -59,8 +59,9 @@ class Accounts
 
     #return is the game instance 
 
-    def self.open_or_create_account(player)
-        player.game
+    def self.open_account(player)
+        account = self.all.detect {|account| account.user_name == player.user_name}
+        account.game
     end
 
 end

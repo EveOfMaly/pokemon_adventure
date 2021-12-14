@@ -12,7 +12,7 @@ class ProjectPokemon::CLI
         ##account creation 
         Accounts.user #creates a new user or finds an existing user data
         player = Accounts.player_data #retrieves thae player data 
-        game = Accounts.open_or_create_account(player)
+        game = Accounts.open_account(player)
         # #initialize the game and associate the particular game with the player
         
         # # game = Game.new(player)
@@ -20,9 +20,11 @@ class ProjectPokemon::CLI
         # player.game = game #associate the game with the player 
    
         #create the world
-        game.create_the_world
+        # game.create_the_world
+        Pokemon.create_pokemon
         #start the new game unti the player chooses exit
         game.choose_game
+        
         
         
         #until user chooses to exit play the game 
