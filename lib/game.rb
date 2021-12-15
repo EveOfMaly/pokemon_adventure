@@ -12,8 +12,8 @@ class Game
     @@input = nil 
 
     def initialize(player)
+        @player = player 
         @@game_saved << player
-        @player = player #associate the game with instance of playe 
     end
 
     def self.all

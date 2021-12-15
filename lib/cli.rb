@@ -7,24 +7,14 @@ class ProjectPokemon::CLI
         puts "Welcome to PokemonWorld CLI".colorize(:green)
         puts "Do you have an account 'Y' or 'N'".colorize(:blue)
         
-        #get input from user 
+        player_data =  Player.load_or_create_account  #creates a new user or finds an existing user data
         
-        ##account creation 
-        Accounts.user #creates a new user or finds an existing user data
-        player = Accounts.player_data #retrieves thae player data 
-        game = Accounts.open_account(player)
-        # #initialize the game and associate the particular game with the player
-        
-        # # game = Game.new(player)
- 
-        # player.game = game #associate the game with the player 
-   
-        #create the world
-        # game.create_the_world
+        game_data = player_data.game
+       
         PokemonAPI.create_world 
-        #start the new game unti the player chooses exit
-
-        game.choose_game
+    
+        game_data.choose_game
+  
         
         
         
