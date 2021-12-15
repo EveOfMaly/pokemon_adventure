@@ -11,6 +11,7 @@ require "irb"
 require 'open-uri'
 require 'net/http'
 require 'poke-api-v2'
+require 'httparty'
 require 'bundler' #makes it so Ruby can find all the Ruby gems in the Gemfile.
 Bundler.require
 require_all 'lib'

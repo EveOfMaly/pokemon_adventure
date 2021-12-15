@@ -34,6 +34,7 @@ class Accounts
         player = Player.find_or_create_player(user_name_input) #find or create the player
         add_account(player)
         @@player  = player 
+        puts "Redirecting to the log in ".colorize(:blue)
       elsif @@input == "N" || @@input == "n"
         puts "Okay, no problem.".colorize(:green)
         puts "Answer a few questions to create your account".colorize(:green)

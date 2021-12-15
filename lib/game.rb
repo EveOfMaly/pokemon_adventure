@@ -69,15 +69,15 @@ class Game
     end
 
 
-    def create_the_world
-        Pokemon.create_pokemon
-        #do something for the loading it is long....
-    end
+    # def create_the_world
+    #     Pokemon.create_pokemon
+    #     #do something for the loading it is long....
+    # end
 
    
     def catch_pokemon
-    
         @@random_encounter = Pokemon.all.sample #choose a random element
+
         puts "You decide to walk into the wildlands where pokemon are....".colorize(:green)
         puts "A wild #{@@random_encounter.name } has APPEARED!!!".colorize(:green)
         action_input = encounter_action
@@ -115,7 +115,8 @@ class Game
     end
 
     def chance_to_catch_pokemon(random_encounter)
-        if (rand(1..255)/255.0) > (random_encounter.capture_rate/255.0)   
+  
+        if (rand(1..255)/255.0) > (random_encounter.species.capture_rate/255.0)   
             puts "you cought the pokemon".colorize(:green)
             self.player.add_pokemon(random_encounter)
             self.player.pokeballs -= 1
@@ -159,15 +160,15 @@ class Game
         puts "You pull out your pokedex"
         puts ""
         puts "Type of pokemon: #{pokemon.name}".colorize(:green)
-        puts "Level: unknown".colorize(:green)
-        puts "Description: #{pokemon.description.split("\n").join(" ").split("\f").join(" ")}".colorize(:green)
+        puts "Level: Unknown".colorize(:green)
+        puts "Description: #{pokemon.species.description.split("\n").join(" ").split("\f").join(" ")}".colorize(:green)
         action_input = self.encounter_action
         self.action_options(action_input)
     end
 
     def my_money
         puts " "
-        puts "You have ##{self.player.pokedollars} pokedollars"
+        puts "You have $#{self.player.pokedollars} pokedollars"
         puts " "  
         choose_game
     end

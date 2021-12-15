@@ -21,8 +21,9 @@ class ProjectPokemon::CLI
    
         #create the world
         # game.create_the_world
-        Pokemon.create_pokemon
+        PokemonAPI.create_world 
         #start the new game unti the player chooses exit
+
         game.choose_game
         
         

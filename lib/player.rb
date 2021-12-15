@@ -80,7 +80,8 @@ class Player
                 puts "Nickname: #{pokemon.nick_name}".colorize(:green)
                 puts "Type of pokemon: #{pokemon.name}".colorize(:green)
                 puts "Level: #{pokemon.level}".colorize(:green)
-                puts "Description: #{pokemon.description.split("\n").join(" ").split("\f").join(" ")}".colorize(:green)
+                puts "Description: #{pokemon.species.description.split("\n").join(" ").split("\f").join(" ")}".colorize(:green)
+                
                 puts "---------"
             end
             self.game.choose_game
