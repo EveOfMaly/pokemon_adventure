@@ -4,6 +4,15 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 Pokemon CLI Adventure
 
+## Key Features 
+- Ability to catch pokemon and add them to your pokemon list 
+- Ability to see a list of caught pokemon 
+- Display Bag
+- See current amount of pokedollars 
+- Shop - future versions 
+- Log Out - keeps your save file
+- Start Battle - future versions 
+
 ## Installation
 
 Add this line to your application's Gemfile:
