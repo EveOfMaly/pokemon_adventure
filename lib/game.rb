@@ -64,7 +64,8 @@ class Game
         elsif valid? && @@input == 8 
             self.logout
         elsif valid?  && @@input == 9
-           self.delete_account
+           self.delete_account(@player)
+           binding.pry
         end
     end
 
@@ -205,8 +206,8 @@ class Game
         ProjectPokemon::CLI.call 
     end
 
-    def delete_account
-        account = Accounts.all.reject {|object| object.game == self}
+    def delete_account(player)
+        Player.all.delete_if {|object| object.user_name == player.user_name}
         ProjectPokemon::CLI.call 
     end 
 end 

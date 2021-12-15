@@ -26,47 +26,23 @@ class Player
     end
 
     def self.find_or_create_player(user_name)
-     
-        if Player.all.count == 0 
-            puts ".".colorize(:green)
-            puts "..".colorize(:green)
-            puts "...".colorize(:green)
-            puts "Error. There are curently no accounts in our database".colorize(:red)
-            puts "Creating the acccount with that username for you:".colorize(:green)
-            
-            
+        if player = Player.all.detect {|ele| ele.user_name == user_name}
+            puts "Found the player".colorize(:green)
+            puts "Opening the game associated with that player...".colorize(:green)
+            player
+        else 
+            puts "User doesn't exit".colorize(:red)
+            puts "Creating the username for you:".colorize(:green)
             player = Player.new
-            game = Game.new(player) 
+            game = Game.new(player)
 
             player.game = game 
-            # game.player = self 
-
-            # Accounts.add_account(player)
+           
             player.user_name = user_name
             player 
-        elsif Player.all.count > 0 
-            Player.all.each do |ele|
-                if ele.user_name == user_name 
-                    puts "Found the player".colorize(:green)
-                    puts "Opening the game associated with that player...".colorize(:green)
-                    player =  ele
-                    # player.game = game 
-                    player 
-                else 
-                    puts "User doesn't exit".colorize(:red)
-                    puts "Creating the username for you:".colorize(:green)
-                    player = Player.new
-                    player.game = game 
-                    game = Game.new(player)
-                    # game.player = self 
-                    # Accounts.add_account(player)
-                    player.user_name = user_name
-                    player 
-                end
-            end
         end
-        player 
     end
+        
 
     #when a pokemon is captured add the pokemon to list of pokemon of trainer
     def add_pokemon(pokemon)

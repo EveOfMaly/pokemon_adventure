@@ -16,8 +16,6 @@ class ProjectPokemon::CLI
         game_data.choose_game
   
         
-        
-        
         #until user chooses to exit play the game 
         until game.exit? 
           game.choose_game
