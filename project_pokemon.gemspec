@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors = ["EveOfMaly"]
   spec.email = ["john.a.kyeremeh@gmail.com"]
 
-  spec.summary = "Write a short summary, because RubyGems requires one."
-  spec.description = "Write a longer description or delete this line."
+  spec.summary = "Project Pokemon is a simple command line pokemon game."
+  spec.description = "Project pokemon aims to take through the pokemon adventures. 
+                      User receives instructions to 1) Catch Pokemon 2) See Their Pokemon List 3) Display Bag 4) See Money 5) Shop 6) Log Out 7. Start Battle (Future versions)."
   spec.homepage = "https://github.com/EveOfMaly/pokemon_adventure.git"
   spec.required_ruby_version = ">= 2.6.0"
 
