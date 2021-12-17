@@ -1,19 +1,19 @@
-require_relative '../config/environment'
-require_relative '../lib/pokemon'
-require_relative '../lib/player'
-require_relative '../lib/move'
-require_relative '../lib/account_creation'
+# require_relative '../config/environment'
+# require_relative '../lib/pokemon'
+# require_relative '../lib/player'
+# require_relative '../lib/move'
+# require_relative '../lib/account_creation'
 
 class Game
 
     attr_accessor :players, :player 
 
-    @@game_saved = [] #keeps track of all players 
+    @@game_saved = [] #keeps track of all player objects that have been ever made.  
     @@input = nil 
 
     def initialize(player)
         @player = player 
-        @@game_saved << player
+        @@game_saved << player #add the player object into game saved upon init
     end
 
     def self.all
@@ -44,7 +44,7 @@ class Game
     def choose_game
         self.displaymenu
         @@input = gets.chomp.to_i
-        if !valid?
+        if !valid? #if input isn't valid keep choosing. 
             self.choose_game
         elsif valid? && @@input == 1
             self.catch_pokemon
@@ -65,7 +65,6 @@ class Game
             self.logout
         elsif valid?  && @@input == 9
            self.delete_account(@player)
-           binding.pry
         end
     end
 
@@ -77,12 +76,12 @@ class Game
 
    
     def catch_pokemon
-        @@random_encounter = Pokemon.all.sample #choose a random element
+        @@random_encounter = Pokemon.all.sample #choose a random element out of the array of all pokemon created. 
 
         puts "You decide to walk into the wildlands where pokemon are....".colorize(:green)
         puts "A wild #{@@random_encounter.name } has APPEARED!!!".colorize(:green)
-        action_input = encounter_action
-        action_options(action_input)
+        action_input = encounter_action  #user actions when they encounter a pokemon
+        action_options(action_input) #call respective method related to action.
     end
    
     def action_options(action_input)
@@ -107,7 +106,7 @@ class Game
     def throw_pokeball(random_encounter)
         if self.player.pokeballs > 0 
             puts "Throwing a pokeball".colorize(:purple)
-            self.chance_to_catch_pokemon(random_encounter)
+            self.chance_to_catch_pokemon(random_encounter) #call equation on chance to catch pokemon.
         else
             puts "not enough pokeballs".colorize(:green)
             puts "please go to the store".colorize(:green)
@@ -115,6 +114,8 @@ class Game
         end
     end
 
+    #capture rates gives a number from 1..255 where 1 is low and 255 is high.
+    #creates a random number from 1/255.0 if that number is higher than capure rate over 255 then catch pokemon
     def chance_to_catch_pokemon(random_encounter)
   
         if (rand(1..255)/255.0) > (random_encounter.species.capture_rate/255.0)   
@@ -134,6 +135,7 @@ class Game
     end
 
     
+    #user actions when they encounter a pokemon
     def encounter_action
             puts "What would you like to do?".colorize(:green)
             puts "1. Throw a pokeball".colorize(:blue)
@@ -144,10 +146,10 @@ class Game
     end
 
   
-
     
-    
-
+    #displays the number of pokemon.
+    #consider adding options to choose different types of pokeballs each impacting chance of capture.
+    #create future bag Class
     def my_bag
         puts " "
         puts "You have #{self.player.pokeballs} pokeballs."
@@ -155,7 +157,6 @@ class Game
         choose_game
     end
 
-    ##account for nil class??
 
     def use_pokedex(pokemon)
         puts "You pull out your pokedex"
@@ -169,31 +170,31 @@ class Game
 
     def my_money
         puts " "
-        puts "You have $#{self.player.pokedollars} pokedollars"
+        puts "You have $#{self.player.pokedollars} pokedollars".colorize(:green)
         puts " "  
         choose_game
     end
 
     def exit?
-      puts "thanks for playing the game"
+      puts "thanks for playing the game".colorize(:green)
       exit
     end
 
     def shop
-        puts "We love to collect feedback on your interest"
-        puts "Would a advanced be of interest to you?"
+        puts "We love to collect feedback on your interest".colorize(:green)
+        puts "Would a advanced be of interest to you?".colorize(:green)
         choose_game
     end
     
     def start_battle
-        puts "We love to collect feedback on your interest"
-        puts "Would a pokemon game be of interest to you?"
+        puts "We love to collect feedback on your interest".colorize(:green)
+        puts "Would a pokemon game be of interest to you?".colorize(:green)
         survey = gets.chomp 
         choose_game 
     end
 
     def delete_account 
-        puts "ATTENTION. This will delete this playthrough are you sure you want to do this?"
+        puts "ATTENTION. This will delete this playthrough are you sure you want to do this?".colorize(:green)
     end 
 
     def logout

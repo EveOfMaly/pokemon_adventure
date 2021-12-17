@@ -1,8 +1,8 @@
-require_relative '../config/environment'
-require_relative '../lib/pokemon'
-require_relative '../lib/player'
-require_relative '../lib/move'
-require_relative '../lib/account_creation'
+# require_relative '../config/environment'
+# require_relative '../lib/pokemon'
+# require_relative '../lib/player'
+# require_relative '../lib/move'
+# require_relative '../lib/account_creation'
 
 class Player 
     attr_accessor :game, :player_id, :user_name, :first_name, :last_name, :trainer_level, :pokeballs, :pokemons, :items, :pokedollars

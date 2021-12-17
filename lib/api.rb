@@ -1,9 +1,9 @@
-require_relative '../config/environment'
-require_relative '../lib/pokemon'
-require_relative '../lib/player'
-require_relative '../lib/move'
-require_relative '../lib/account_creation'
-require_relative '../lib/species'
+# require_relative '../config/environment'
+# require_relative '../lib/pokemon'
+# require_relative '../lib/player'
+# require_relative '../lib/move'
+# require_relative '../lib/account_creation'
+# require_relative '../lib/species'
 
 
 
@@ -11,19 +11,20 @@ require_relative '../lib/species'
 
 class PokemonAPI 
 
-    # get data (including species, sprites, and base stats) about each of the first 151 pokemon
+    # get data (includes species, sprites, and base stats) about each of the first 151 pokemon
     def self.fetch_pokemon
         #Parse data using Net::HTTP
-        uri = URI.parse("https://pokeapi.co/api/v2/pokemon?limit=3")
+        uri = URI.parse("https://pokeapi.co/api/v2/pokemon?limit=151")
         response_pokemon = Net::HTTP.get_response(uri) #use NET::HTTP library to send an HTTP request for our program.
         response_pokemon.body 
         json_data = JSON.parse(response_pokemon.body)
 
-        #using HTTP Party
+         #using HTTP Party 
         # url = "https://pokeapi.co/api/v2/pokemon?limit=151"
         # response = HTTParty.get(url)
     end
 
+    #create pokemon objects using fetched data.
     def self.create_pokemon(pokemon_results)
         pokemon_hash = {}
 
@@ -47,7 +48,7 @@ class PokemonAPI
         json_data = JSON.parse(response_desc.body)
     end
      
-
+    #create pokemon species objects out of the data. 
     def self.create_species_data(pokemon_species_results)
         results = pokemon_species_results["results"]
 
@@ -58,7 +59,7 @@ class PokemonAPI
             json_data = JSON.parse(response_desc.body)
             new_species = PokemonSpecies.new(json_data)
         
-            new_species.link_species_data_to_pokemon(Pokemon.all)
+            new_species.link_species_data_to_pokemon(Pokemon.all) #uses the array of pokemon and iterates through each list. if the pokedex numbers are the self the pokemon species gets related to pokemon. 
             new_species
         end
     end
@@ -83,11 +84,11 @@ class PokemonAPI
             response_desc.body 
             json_data = JSON.parse(response_desc.body)
             new_move = PokemonMove.new(json_data)
-            new_move.link_moves_data_to_pokemon(Pokemon.all)
+            new_move.link_moves_data_to_pokemon(Pokemon.all) #links to move object with the pokemon object that have same name.
         end
     end
 
-
+    #API methods that fetch and create Pokemon, Species, and Move data. 
     def self.create_world
         PokemonAPI.fetch_pokemon
         PokemonAPI.create_pokemon(PokemonAPI.fetch_pokemon)

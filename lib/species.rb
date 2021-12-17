@@ -1,9 +1,9 @@
-require_relative '../config/environment'
-require_relative '../lib/pokemon'
-require_relative '../lib/player'
-require_relative '../lib/move'
-require_relative '../lib/account_creation'
-require_relative '../lib/api'
+# require_relative '../config/environment'
+# require_relative '../lib/pokemon'
+# require_relative '../lib/player'
+# require_relative '../lib/move'
+# require_relative '../lib/account_creation'
+# require_relative '../lib/api'
 
 class PokemonSpecies
 
@@ -22,6 +22,7 @@ class PokemonSpecies
         self.class.all << self 
     end
 
+    #uses the array of pokemon and iterates through each list. if the pokedex numbers are the self the pokemon species gets related to pokemon. 
     def link_species_data_to_pokemon(pokemon_list)
          Pokemon.all.select do |pokemon|
             if pokemon.pokedex_number == self.pokedex_number

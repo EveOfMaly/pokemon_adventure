@@ -1,6 +1,6 @@
-require_relative '../config/environment'
-require_relative '../lib/pokemon'
-require_relative '../lib/player'
+# require_relative '../config/environment'
+# require_relative '../lib/pokemon'
+# require_relative '../lib/player'
 
 class PokemonMove
     attr_accessor :move, :pokemon, :name, :accuracy, :level_learned, :learned_by_pokemon

@@ -1,8 +1,8 @@
-require_relative '../config/environment'
-require_relative '../lib/pokemon'
-require_relative '../lib/player'
-require_relative '../lib/move'
-require_relative '../lib/account_creation'
+# require_relative '../config/environment'
+# require_relative '../lib/pokemon'
+# require_relative '../lib/player'
+# require_relative '../lib/move'
+# require_relative '../lib/account_creation'
 
 class Pokemon
     #pokemon belong to a player
