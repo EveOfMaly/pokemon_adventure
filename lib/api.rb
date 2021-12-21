@@ -14,7 +14,7 @@ class PokemonAPI
     # get data (includes species, sprites, and base stats) about each of the first 151 pokemon
     def self.fetch_pokemon
         #Parse data using Net::HTTP
-        uri = URI.parse("https://pokeapi.co/api/v2/pokemon?limit=151")
+        uri = URI.parse("https://pokeapi.co/api/v2/pokemon?limit=10")
         response_pokemon = Net::HTTP.get_response(uri) #use NET::HTTP library to send an HTTP request for our program.
         response_pokemon.body 
         json_data = JSON.parse(response_pokemon.body)
@@ -42,7 +42,7 @@ class PokemonAPI
     #get species data out of the  pokemon
     def self.fetch_pokemon_species_data
         #Parse data using using Net::HTTP
-        uri = URI.parse("https://pokeapi.co/api/v2/pokemon-species?limit=3")
+        uri = URI.parse("https://pokeapi.co/api/v2/pokemon-species?limit=10")
         response_desc = Net::HTTP.get_response(uri) #use NET::HTTP library to send an HTTP request for our program.
         response_desc.body 
         json_data = JSON.parse(response_desc.body)
@@ -67,7 +67,7 @@ class PokemonAPI
 
 
     def self.fetch_pokemon_move_data
-        uri = URI.parse("https://pokeapi.co/api/v2/move?limit=3")
+        uri = URI.parse("https://pokeapi.co/api/v2/move?limit=10")
         response_desc = Net::HTTP.get_response(uri) #use NET::HTTP library to send an HTTP request for our program.
         response_desc.body 
         json_data = JSON.parse(response_desc.body)
