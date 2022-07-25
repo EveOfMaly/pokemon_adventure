@@ -106,7 +106,7 @@ class Player
           # @@player  = player 
         else
           puts "That is not a valid input..Do you have an account 'Y' or 'N'".colorize(:red)
-          self.user
+          self.load_or_create_account
         end
     end
 
