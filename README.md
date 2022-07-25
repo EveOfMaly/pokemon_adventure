@@ -29,9 +29,13 @@ Or install it yourself as:
 
     $ gem install project_pokemon
 
+to run the game type:
+
+    $ bin/run.rb       
+
+
 ## Usage
 
-TODO: Write usage instructions here
 
 ## Development
 
