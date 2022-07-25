@@ -1,8 +1,8 @@
-# ProjectPokemon
+# Pokemon CLI Adventure 
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/project_pokemon`. To experiment with that code, run `bin/console` for an interactive prompt.
+A clean and simple CLI Application Gem built with plain Ruby.
 
-Pokemon CLI Adventure
+This Ruby Gem provides a CLI to catch, list, display pokemon.
 
 ## Key Features 
 - Ability to catch pokemon and add them to your pokemon list 
@@ -14,6 +14,7 @@ Pokemon CLI Adventure
 - Start Battle - future versions 
 
 ## Installation
+
 
 Add this line to your application's Gemfile:
 
@@ -31,10 +32,16 @@ Or install it yourself as:
 
 to run the game type:
 
-    $ bin/run.rb       
+    $ bin/run.rb      
+ 
 
 
 ## Usage
+
+ Put your Ruby code in the file `lib/project_pokemon`. To experiment with that code, run `bin/console` for an interactive prompt.
+
+## License
+MIT - https://choosealicense.com/licenses/mit/
 
 
 ## Development
@@ -45,8 +52,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/project_pokemon. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/<github username>/project_pokemon/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/johnkyeremeh/pokemon_adventure. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/johnkyeremeh/pokemon_adventure/blob/main/CODE_OF_CONDUCT.md).
 
 ## Code of Conduct
 
-Everyone interacting in the ProjectPokemon project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/project_pokemon/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ProjectPokemon project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/johnkyeremeh/pokemon_adventure/blob/main/CODE_OF_CONDUCT.md).
