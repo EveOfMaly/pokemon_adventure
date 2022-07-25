@@ -12,4 +12,5 @@ gem "rake", "~> 13.0"
 gem 'poke-api-v2'
 gem 'awesome_print'
 gem 'httparty'
+gem  'sqlite3'
 gemspec

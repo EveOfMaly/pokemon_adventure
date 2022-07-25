@@ -36,6 +36,7 @@ class PokemonAPI
             response_desc.body 
             json_data = JSON.parse(response_desc.body)
             new_pokemon = Pokemon.new(json_data)
+            new_pokemon.save #save each pokemon into the database
         end
     end
 

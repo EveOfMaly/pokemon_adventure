@@ -37,6 +37,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.3)
+    sqlite3 (1.4.2)
 
 PLATFORMS
   x86_64-darwin-19
@@ -51,6 +52,7 @@ DEPENDENCIES
   rake (~> 13.0)
   require_all
   rspec
+  sqlite3
 
 BUNDLED WITH
    2.2.31

@@ -12,6 +12,7 @@ require 'open-uri'
 require 'net/http'
 require 'poke-api-v2'
 require 'httparty'
+require 'sqlite3'
 require 'bundler' #makes it so Ruby can find all the Ruby gems in the Gemfile.
 Bundler.require
 require_all 'lib'
@@ -24,4 +25,9 @@ require_all 'lib'
 # Pry.start
 
 require "irb"
+
+#database connection
+DB = {:conn => SQLite3::Database.new("./db/pokemon_adventure.db")} #why is this the path???
 # IRB.start(__FILE__)
+
+
